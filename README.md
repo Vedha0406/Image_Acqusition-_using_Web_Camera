@@ -11,7 +11,7 @@ iv) Rotate and display the video
 Anaconda - Python 3.7
 ## Algorithm
 ### Step 1:
-<br>
+
 
 ### Step 2:
 <br>
@@ -25,58 +25,105 @@ Anaconda - Python 3.7
 ### Step 5:
 <br>
 
-## Program:
-``` Python
-### Developed By:
-### Register No:
+### Program: Image_Acqusition-_using_Web_Camera
+### Developed By: VEDHASHREE>G
+### Register No: 212223240171
 
 ## i) Write the frame as JPG file
+```
+import cv2
+viedoCaptureObject=cv2.VideoCapture(0)
 
+ret,frame=viedoCaptureObject.read()
+cv2.imwrite("m1.jpg",frame)
+
+viedoCaptureObject.release()
+cv2.destroyAllWindows()
+```
 
 
 
 ## ii) Display the video
-
+```
+import cv2
+videoCaptureObject = cv2.VideoCapture(0)
+while(True):
+    ret,frame = videoCaptureObject.read()
+    cv2.imshow('myimage',frame)
+    if cv2.waitKey(1) == ord('q'):
+        break
+videoCaptureObject.release()
+cv2.destroyAllWindows()
+```
 
 
 
 ## iii) Display the video by resizing the window
-
-
+```
+import cv2
+import numpy as np
+cap = cv2.VideoCapture(0)
+while True:
+    ret, frame = cap.read() 
+    width = int(cap.get(3))
+    height = int(cap.get(4))
+    image = np.zeros(frame.shape, np.uint8) 
+    smaller_frame = cv2.resize(frame, (0,0), fx = 0.5, fy=0.5) 
+    image[:height//2, :width//2] = smaller_frame
+    image[height//2:, :width//2] = smaller_frame
+    image[:height//2, width//2:] = smaller_frame 
+    image [height//2:, width//2:] = smaller_frame
+    cv2.imshow('myimage', image)
+    if cv2.waitKey(1) == ord('q'):
+        break
+cap.release()
+cv2.destroyAllWindows()
+```
 
 
 ## iv) Rotate and display the video
-
-
-
-
-
-
-
-
-
 ```
+import numpy as np
+import cv2
+cap=cv2.VideoCapture(0)
+while True:
+    ret,frame=cap.read()
+    width=int(cap.get(3))
+    height=int(cap.get(4))
+    image=np.zeros(frame.shape,np.uint8)
+    smaller_frame=cv2.resize(frame,(0,0),fx=0.5,fy=0.5)
+    image[:height//2, :width//2]=cv2.rotate(smaller_frame,cv2.ROTATE_180)
+    image[height//2:, :width//2]=smaller_frame
+    image[:height//2, width//2:]=cv2.rotate(smaller_frame,cv2.ROTATE_180)
+    image[height//2:, width//2:]=smaller_frame
+    cv2.imshow('RESULT',image)
+    if cv2.waitKey(1)==ord('q'):
+        break
+cap.release()
+cv2.destroyAllWindows()
+```
+
+ 
 ## Output
 
 ### i) Write the frame as JPG image
-</br>
-</br>
+![image](https://github.com/user-attachments/assets/8d8f9828-b9a2-473e-8dc6-78894fa2b309)
+
 
 
 ### ii) Display the video
-</br>
-</br>
+![Screenshot 2024-09-09 032407](https://github.com/user-attachments/assets/63383d56-7d7c-44c8-919f-127521874a4b)
 
 
 ### iii) Display the video by resizing the window
-</br>
-</br>
+
+![Screenshot 2024-09-09 032234](https://github.com/user-attachments/assets/3eb76de0-15db-4e56-87cb-8d918983068a)
 
 
 
 ### iv) Rotate and display the video
-</br>
-</br>
+![Screenshot 2024-09-09 032315](https://github.com/user-attachments/assets/e1ea10e2-78c6-44c8-91a6-957bea6d7a11)
+
 
 
 
