@@ -1,4 +1,4 @@
-### Image Acqusition using Web Camera
+# Image Acqusition using Web Camera
 ### Aim:
 To write a python program using OpenCV to capture the image from the web camera and do the following image manipulations.
 i) Write the frame as JPG 
